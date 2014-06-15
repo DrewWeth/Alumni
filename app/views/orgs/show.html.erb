@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @org.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @org.name %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @org.desc %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @org.parent %>
+</p>
+
+<p>
+  <strong>Est date:</strong>
+  <%= @org.est_date %>
+</p>
+
+
+<%= link_to "Claim Org", :controller => :orgs, :action => :claim %>
+
+<% if user_logged_in? %>
+<table>
+  <thead>
+    <tr>
+      <th>Members</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @members.each do |mem| %>
+      <tr>
+        <td><%= mem.f_name %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end>
+
+<%= link_to 'Edit', edit_org_path(@org) %> |
+<%= link_to 'Back', orgs_path %>

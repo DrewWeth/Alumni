@@ -1,0 +1,23 @@
+<h1>Welcome</h1>
+
+<% if user_signed_in? %>
+<table>
+  <thead>
+    <tr>
+      <th>/member_id</th>
+      <th>/org_id</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orgs.each do |org| %>
+      <tr>
+        <td><%= org.member_id %></td>
+        <td><%= org.org_id %></td>
+        <td><%= link_to 'Show' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
