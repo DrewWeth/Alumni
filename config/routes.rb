@@ -1,5 +1,7 @@
 AlumniConnect::Application.routes.draw do
 
+  resources :orgs
+
 root to: "members#index"
   
   resources :members
