@@ -2,10 +2,11 @@ AlumniConnect::Application.routes.draw do
 
   resources :orgs
 
-root to: "members#index"
+  root to: "home#index"
   
+  get '/orgs/claim/:id', to: 'orgs#claim'
   resources :members
-
+  resources :home
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
