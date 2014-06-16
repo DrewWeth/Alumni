@@ -11,7 +11,7 @@ class OrgsController < ApplicationController
   # GET /orgs/1
   # GET /orgs/1.json
   def show
-    @members = Members.where(MembersInOrgs.has("member_id = ? AND org_id = ?", current_user.id, params[:id]))
+    @members = Member.joins(:org).where(orgs.id.like_any member_id)
   end
 
   # GET /orgs/new

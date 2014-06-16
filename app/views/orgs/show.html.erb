@@ -26,26 +26,27 @@
 </p>
 
 
-<%= link_to "Claim Org", :controller => :orgs, :action => :claim %>
+<%= link_to "Claim Org", :controller => :orgs, :action => :claim %> | 
 
-<% if user_logged_in? %>
+<%= link_to 'Edit', edit_org_path(@org) %> |
+<%= link_to 'Back', orgs_path %>
+
 <table>
   <thead>
     <tr>
-      <th>Members</th>
-      
+      <th>Name</th>
+      <th>ID</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @members.each do |mem| %>
       <tr>
-        <td><%= mem.f_name %></td>
-        </tr>
+        <td><%= mem.member_id %></td>
+        <td><%= mem.org_id %></td>
+        <td><%= link_to 'Show' %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
-<% end>
-
-<%= link_to 'Edit', edit_org_path(@org) %> |
-<%= link_to 'Back', orgs_path %>

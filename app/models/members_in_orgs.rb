@@ -1,3 +1,4 @@
 class MembersInOrgs < ActiveRecord::Base
-	validates_uniqueness_of :member_id, scope: :org_id
+	belongs_to :org, :foreign_key=>"id"
+	belongs_to :member, :foreign_key=>"id"
 end

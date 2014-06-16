@@ -11,13 +11,34 @@
   </thead>
 
   <tbody>
-    <% @orgs.each do |org| %>
+    <% @memOrg.each do |mo| %>
       <tr>
-        <td><%= org.member_id %></td>
-        <td><%= org.org_id %></td>
+        <td><%= mo.member_id %></td>
+        <td><%= mo.org_id %></td>
         <td><%= link_to 'Show' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <% end %>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orgs.each do |org| %>
+      <tr>
+        <td><%= org.name %></td>
+        <td><%= org.id %></td>
+        <td><%= link_to 'Show' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
