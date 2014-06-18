@@ -1,44 +1,47 @@
 <h1>Welcome</h1>
 
 <% if user_signed_in? %>
+Your aliases
 <table>
   <thead>
     <tr>
-      <th>/member_id</th>
-      <th>/org_id</th>
-      <th></th>
+      <th>User ID
+      <th>Member ID</th>
+      <td colspan="2">Name</td>
     </tr>
   </thead>
 
   <tbody>
-    <% @memOrg.each do |mo| %>
+    <% @memberships.each do |m| %>
       <tr>
-        <td><%= mo.member_id %></td>
-        <td><%= mo.org_id %></td>
-        <td><%= link_to 'Show' %></td>
+        <td><%= m.user_id %></td>
+        <td><%= m.id %></td>
+        <td><%= m.first_name %></td>
+        <td><%= m.last_name %></td>
+
       </tr>
     <% end %>
-  </tbody>
+</tbody>
 </table>
+Your organizations
+    <table>
+      <thead>
+      <tr>
+        <th>Name
+        <th>Est_Date</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @org.each do |o| %>
+          <tr>
+            <td><%= o.name %></td>
+            <td><%= o.id %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+
 <% end %>
 
-
-<table>
-  <thead>
-    <tr>
-      <th>name</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orgs.each do |org| %>
-      <tr>
-        <td><%= org.name %></td>
-        <td><%= org.id %></td>
-        <td><%= link_to 'Show' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>

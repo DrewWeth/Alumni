@@ -2,7 +2,7 @@
 
 <p>
   <strong>Member:</strong>
-  <%= @member.member_id %>
+  <%= @member.id %>
 </p>
 
 <p>
@@ -25,5 +25,34 @@
   <%= @member.email %>
 </p>
 
+<p>
+  <strong>Claims</strong>
+  <table>
+    <thread>
+      <tr>
+        <th>Claim id</th>
+        <th>Claim input</th>
+        <th>Member id</th>
+      </tr>
+    </thread>
+  <tbody>
+    <% @claims.each do |claim| %>
+      <tr>
+        <td><%= claim.id %></td>
+        <td><%= claim.input %></td>
+        <td><%= claim.member_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</p>
+
+
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>
+
+
+<div>
+<%= link_to "Claim Org", :controller => :members, :action => :claim %> |
+<%=  text_field :input, :required => true %>
+</div>

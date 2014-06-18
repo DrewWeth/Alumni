@@ -11,7 +11,8 @@ class OrgsController < ApplicationController
   # GET /orgs/1
   # GET /orgs/1.json
   def show
-    @members = Member.joins(:org).where(orgs.id.like_any member_id)
+    
+    @members = Org.find(params[:id]).members
   end
 
   # GET /orgs/new
@@ -21,13 +22,10 @@ class OrgsController < ApplicationController
 
   # GET /orgs/1/edit
   def edit
+    @parents = Org.all
+
   end
 
-  def claim
-    relation = MembersInOrgs.create(:member_id => current_user.id, :org_id => params[:id])
-    relation.save
-    redirect_to orgs_path
-  end
 
 
   # POST /orgs

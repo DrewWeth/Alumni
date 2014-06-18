@@ -4,7 +4,7 @@ AlumniConnect::Application.routes.draw do
 
   root to: "home#index"
   
-  get '/orgs/claim/:id', to: 'orgs#claim'
+  get '/members/claim/:id', to: 'members#claim'
   resources :members
   resources :home
   devise_for :users

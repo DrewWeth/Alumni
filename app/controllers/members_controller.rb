@@ -12,11 +12,27 @@ class MembersController < ApplicationController
   # GET /members/1
   # GET /members/1.json
   def show
+    @member = Member.find(params[:id])
+    @claims = Claim.all
   end
 
   # GET /members/new
   def new
     @member = Member.new
+  end
+
+  def claim
+    if current_user
+      member = Member.find(params[:id])
+      #myClaim = Claim.find_by_user_id_and_member_id(current_user.id, params[:id])
+      if member.user_id == nil
+        member.update(user_id: current_user.id)
+        member.save
+      end
+      redirect_to orgs_path
+    else
+      redirect_to new_user_session_path, notice: 'You are not logged in!'
+    end
   end
 
   # GET /members/1/edit

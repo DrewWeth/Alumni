@@ -2,9 +2,10 @@ class HomeController < ApplicationController
 
 	def index
 		if user_signed_in?
-			@memOrg = MembersInOrgs.where(:member_id => current_user.id)
-		end
-		@orgs = org.members.all
+			@memberships = User.find(current_user.id).members
+      @org = Member.find(User.find(current_user.id)).orgs
+
+    end
 	end
 
 end

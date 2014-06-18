@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140615234519) do
+ActiveRecord::Schema.define(version: 20140618062029) do
+
+  create_table "claims", force: true do |t|
+    t.integer  "input"
+    t.integer  "member_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "resolution"
+  end
 
   create_table "members", force: true do |t|
     t.string   "first_name"
@@ -20,6 +29,7 @@ ActiveRecord::Schema.define(version: 20140615234519) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "members_in_orgs", force: true do |t|
@@ -34,6 +44,13 @@ ActiveRecord::Schema.define(version: 20140615234519) do
     t.string   "desc"
     t.integer  "parent"
     t.date     "est_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "parents", force: true do |t|
+    t.integer  "Parent_ID"
+    t.integer  "Child_ID"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
