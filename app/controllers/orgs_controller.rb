@@ -11,8 +11,10 @@ class OrgsController < ApplicationController
   # GET /orgs/1
   # GET /orgs/1.json
   def show
-    
+    @org = Org.find(params[:id])
     @members = Org.find(params[:id]).members
+    @org_parent = Org.includes(:parent).find(params[:id])
+
   end
 
   # GET /orgs/new
@@ -22,10 +24,9 @@ class OrgsController < ApplicationController
 
   # GET /orgs/1/edit
   def edit
-    @parents = Org.all
-
+    @parents = Org.all # for parental select
+    @org = Org.find(params[:id])
   end
-
 
 
   # POST /orgs

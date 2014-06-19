@@ -15,10 +15,14 @@
   <%= @org.desc %>
 </p>
 
-
 <p>
   <strong>Est date:</strong>
   <%= @org.est_date %>
+</p>
+
+<p>
+  <strong>Parental Org</strong>
+  <%= @org_parent.name if @org_parent.name %>
 </p>
 
 

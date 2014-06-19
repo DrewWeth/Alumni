@@ -24,8 +24,9 @@
     <%= f.text_field :desc %>
   </div>
   <div class="field">
-    <%= f.label :parent %><br>
-    <%= f.number_field :parent %>
+
+    <%= select("orgs", "parent", Parent.all.collect {|p| [ p.id, p.id ] }, {include_blank: 'None'}) %>
+
   </div>
   <div class="field">
     <%= f.label :est_date %><br>

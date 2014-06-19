@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618062029) do
+ActiveRecord::Schema.define(version: 20140618235510) do
 
   create_table "claims", force: true do |t|
     t.integer  "input"
@@ -49,8 +49,7 @@ ActiveRecord::Schema.define(version: 20140618062029) do
   end
 
   create_table "parents", force: true do |t|
-    t.integer  "Parent_ID"
-    t.integer  "Child_ID"
+    t.integer  "org_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

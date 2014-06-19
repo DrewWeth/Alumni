@@ -5,5 +5,5 @@ class Member < ActiveRecord::Base
   #has_many :claims
   #has_many :users, through: :claims
 
-  has_one :user
+  has_one :user, foreign_key: :id
 end

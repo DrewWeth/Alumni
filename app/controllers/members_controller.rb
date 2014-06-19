@@ -14,6 +14,7 @@ class MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @claims = Claim.all
+    @user = Member.find(params[:id]).user
   end
 
   # GET /members/new
